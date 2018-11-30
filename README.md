@@ -21,9 +21,8 @@ Look through the `seed.js` file, we have given you an example of how to write th
 
 ### Deliverables
 -  Create 4 students. **You are not required to create seed data for Class or Intructor, we will build this out next week**
--  In `server.js` initiate routes for the index route and the create route.
+-  In `server.js` initiate routes for the index route and the create route, delete is fair game(it will not be counted against your completion mark if it doesn't work).
 -  Student routes should use a `'/students'` endpoint.
-
 
 
 ## Getting started on the front-end
@@ -33,12 +32,12 @@ Look through the `seed.js` file, we have given you an example of how to write th
 
 ### Deliverables
 1. Create a students list component that renders students fetched from the server.
-1. Write a student services file that makes axios services which exports functions requests that makes requests to:
+1. Write a student services file that makes axios requests which exports functions that makes requests to:
 -  GET `/students`
 -  POST  `/students`
--  DELETE `/students/:id`
+1. Style your app using CSS, this would be a great time to practice grid or flexbox! Feeling adventurous? Look into [React-Bootstrap](https://react-bootstrap.github.io/) 
 
 ## Bonus:
 
-1. Implement a delete functionality on the front-end.
-1. Style your app using CSS! 
+1. Implement delete functionality on the front-end.
+
