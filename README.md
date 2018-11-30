@@ -22,7 +22,7 @@ Look through the `seed.js` file, we have given you an example of how to write th
 ### Deliverables
 -  Create 4 students. **You are not required to create seed data for Class or Intructor, we will build this out next week**
 -  In `server.js` initiate routes for the index route and the create route, delete is fair game(it will not be counted against your completion mark if it doesn't work).
--  Student routes should use a `'/students'` endpoint.
+-  Student routes should use `GET /students` and `POST /students` endpoints
 
 
 ## Getting started on the front-end
@@ -35,7 +35,9 @@ Look through the `seed.js` file, we have given you an example of how to write th
 1. Write a student services file that makes axios requests which exports functions that makes requests to:
 -  GET `/students`
 -  POST  `/students`
-1. Style your app using CSS, this would be a great time to practice grid or flexbox! Feeling adventurous? Look into [React-Bootstrap](https://react-bootstrap.github.io/) 
+3. Implement onChange and onSubmit handlers in the form
+4. Style your app using CSS, this would be a great time to practice grid or flexbox! Feeling adventurous? Look into [React-Bootstrap](https://react-bootstrap.github.io/) 
+
 
 ## Bonus:
 
