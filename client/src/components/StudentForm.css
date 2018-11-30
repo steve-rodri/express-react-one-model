@@ -1,0 +1,9 @@
+.StudentForm {
+  text-align: left;
+  width: 10rem;
+  margin: 0 auto;
+}
+
+.StudentForm label {
+  display: block;
+}

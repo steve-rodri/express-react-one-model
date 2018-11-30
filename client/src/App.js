@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import StudentForm from './components/StudentForm';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: {
+        name: '',
+        hometown: '',
+        bio: ''
+      }
+    }
+  }
+
+  handleChange = (e) => {
+    // TODO: update state.formData when input fields change
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: POST state.formData to your server's /students path
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>University of Octonion</h1>
+        {/* TODO: create a StudentsList component that renders all students fetched from server */}
+        <StudentForm
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+          name={this.state.formData.name}
+          hometown={this.state.formData.hometown}
+          bio={this.state.formData.bio}
+        />
       </div>
     );
   }
