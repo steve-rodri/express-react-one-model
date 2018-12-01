@@ -23,6 +23,15 @@ const AXIOS = {
     } catch (e) {
       console.log(e.message);
     }
+  },
+
+  postStudent: async function (data) {
+    try {
+      const resp = await axios.post(BASE_URL + STUDENTS, data);
+      console.log(resp);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 }
 

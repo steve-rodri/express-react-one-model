@@ -18,6 +18,43 @@ class App extends Component {
   }
 
   componentDidMount = async() => {
+    this.fetchStudents();
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      formData: {
+        ...prevState.formData,
+        [name]: value,
+      },
+    }))
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    await this.createStudent();
+    await this.fetchStudents();
+  }
+
+  createStudent = async () => {
+    try {
+      await AXIOS.postStudent(this.state.formData);
+      console.log("student created");
+      this.setState({
+        formData: {
+          name: '',
+          hometown: '',
+          bio: ''
+        },
+      })
+    } catch (e) {
+      console.log("student was not created");
+      console.log(e.message);
+    }
+  }
+
+  fetchStudents = async() => {
     try {
       const students = await AXIOS.getStudents();
       this.setState({
@@ -25,16 +62,8 @@ class App extends Component {
       })
     } catch (e) {
       console.log(e.message);
+      console.log('unable to fetch students');
     }
-  }
-
-  handleChange = (e) => {
-    // TODO: update state.formData when input fields change
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: POST state.formData to your server's /students path
   }
 
   render() {
