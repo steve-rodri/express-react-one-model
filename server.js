@@ -47,6 +47,23 @@ app.post('/students', async (req, res) => {
   }
 });
 
+//DELETE student
+app.delete('/students/:id', async (req, res) => {
+  try {
+    await Student.destroy({
+      where: {
+        id: id
+      }
+    });
+    res.json({
+      msg: "Student Deleted"
+    })
+  } catch (e) {
+    console.log(e.message);
+    res.sendStatus(404);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
