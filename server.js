@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { Student } = require('./models');
 
 const PORT = process.env.PORT || 3001;
 
@@ -24,7 +25,7 @@ app.get('/students', async (req, res) => {
 //GET student
 app.get('/students/:id', async (req, res) => {
   try {
-    const student = await Student.findById(req.params.id);
+    const student = await Student.findByPk(req.params.id);
     res.json({
       student
     })

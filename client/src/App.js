@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AXIOS from './services/AJAXRequests';
 import './App.css';
 
 import StudentForm from './components/StudentForm';
@@ -11,7 +12,19 @@ class App extends Component {
         name: '',
         hometown: '',
         bio: ''
-      }
+      },
+      students: [],
+    }
+  }
+
+  componentDidMount = async() => {
+    try {
+      const students = await AXIOS.getStudents();
+      this.setState({
+        students: students
+      })
+    } catch (e) {
+      console.log(e.message);
     }
   }
 

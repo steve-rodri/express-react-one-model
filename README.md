@@ -32,7 +32,7 @@ Look through the `seed.js` file, we have given you an example of how to write th
 ## Getting started on the front-end
 
 - Run `npm install` inside the client folder.
-- Run `npm run client` to launch the client side (in a separate terminal window)
+- Run `npm run start` to launch the client side (in a separate terminal window)
 
 ### Deliverables
 1. Create a students list component that renders students fetched from the server.
