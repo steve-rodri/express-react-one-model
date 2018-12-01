@@ -34,6 +34,19 @@ app.get('/students/:id', async (req, res) => {
   }
 });
 
+//POST student
+app.post('/students', async (req, res) => {
+  try {
+    await Student.create(req.body);
+    res.json({
+      msg: "Student Created"
+    })
+  } catch (e) {
+    console.log(e.message);
+    res.sendStatus(404);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
