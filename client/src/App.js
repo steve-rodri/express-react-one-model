@@ -71,9 +71,9 @@ class App extends Component {
     }
   }
 
-  deleteStudent = async(id) => {
+  deleteStudent = async(student, id) => {
     try {
-      await AXIOS.deleteStudent(id);
+      await AXIOS.deleteStudent(student);
       const students = [...this.state.students];
       students.slice(id, 1);
       this.setState({
@@ -99,8 +99,8 @@ class App extends Component {
           {this.state.students.map((student, id) => (
             <Student
               student={student}
-              key={id}
-              onDelete={() => this.handleDelete(id)}
+              key={student.id}
+              onDelete={() => this.handleDelete(student.id, id)}
             />
           ))}
         </div>
