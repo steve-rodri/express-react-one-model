@@ -64,6 +64,23 @@ app.delete('/students/:id', async (req, res) => {
   }
 });
 
+//PUT student
+app.put('/student/:id', async (req, res) => {
+  try {
+    const student = await Student.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
+    res.json({
+      msg: "Student Updated"
+    })
+  } catch (e) {
+    console.log(e.message);
+    res.sendStatus(404);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
