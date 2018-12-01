@@ -70,7 +70,6 @@ class App extends Component {
     return (
       <div className="App">
         <h1>University of Octonion</h1>
-        {/* TODO: create a StudentsList component that renders all students fetched from server */}
         <StudentForm
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
@@ -78,6 +77,15 @@ class App extends Component {
           hometown={this.state.formData.hometown}
           bio={this.state.formData.bio}
         />
+        <div className= 'students'>
+          {this.state.students.map((student, id) => (
+            <div className= 'student' key={id}>
+              <h4>{student.name}</h4>
+              <h6>{student.hometown}</h6>
+              <p>{student.bio}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
