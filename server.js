@@ -21,6 +21,19 @@ app.get('/students', async (req, res) => {
   }
 });
 
+//GET student
+app.get('/students/:id', async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
+    res.json({
+      student
+    })
+  } catch (e) {
+    console.log(e.message);
+    res.sendStatus(404);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
