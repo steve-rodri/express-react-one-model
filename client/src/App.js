@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import AXIOS from './services/AJAXRequests';
 import './App.css';
 
+import Student from './components/Student';
 import StudentForm from './components/StudentForm';
+
+import AXIOS from './services/AJAXRequests';
 
 class App extends Component {
   constructor(props) {
@@ -37,6 +39,11 @@ class App extends Component {
     await this.fetchStudents();
   }
 
+  handleDelete = async (id) => {
+    await this.deleteStudent(id);
+    await this.fetchStudents();
+  }
+
   createStudent = async () => {
     try {
       await AXIOS.postStudent(this.state.formData);
@@ -50,7 +57,6 @@ class App extends Component {
       })
     } catch (e) {
       console.log("student was not created");
-      console.log(e.message);
     }
   }
 
@@ -61,8 +67,20 @@ class App extends Component {
         students: students
       })
     } catch (e) {
-      console.log(e.message);
       console.log('unable to fetch students');
+    }
+  }
+
+  deleteStudent = async(id) => {
+    try {
+      await AXIOS.deleteStudent(id);
+      const students = [...this.state.students];
+      students.slice(id, 1);
+      this.setState({
+        students: students
+      })
+    } catch (e) {
+      console.log('unable to delete student');
     }
   }
 
@@ -79,11 +97,11 @@ class App extends Component {
         />
         <div className= 'students'>
           {this.state.students.map((student, id) => (
-            <div className= 'student' key={id}>
-              <h4>{student.name}</h4>
-              <h6>{student.hometown}</h6>
-              <p>{student.bio}</p>
-            </div>
+            <Student
+              student={student}
+              key={id}
+              onDelete={() => this.handleDelete(id)}
+            />
           ))}
         </div>
       </div>

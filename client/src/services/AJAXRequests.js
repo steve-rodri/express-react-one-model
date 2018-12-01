@@ -32,6 +32,24 @@ const AXIOS = {
     } catch (e) {
       console.log(e.message);
     }
+  },
+
+  deleteStudent: async function (id) {
+    try {
+      const resp = await axios.delete(BASE_URL + STUDENTS + id);
+      console.log(resp);
+    } catch (e) {
+      console.log(e.message);
+    }
+  },
+
+  updateStudent: async function (id, data) {
+    try {
+      const resp = await axios.update(BASE_URL + STUDENTS + id, data);
+      console.log(resp);
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 }
 

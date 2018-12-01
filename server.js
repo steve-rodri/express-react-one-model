@@ -53,7 +53,7 @@ app.delete('/students/:id', async (req, res) => {
   try {
     await Student.destroy({
       where: {
-        id: id
+        id: req.params.id
       }
     });
     res.json({
