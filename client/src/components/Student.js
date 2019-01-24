@@ -5,7 +5,7 @@ export default function Student(props) {
   return (
     <div className= 'student'>
       <h4>{student.name}</h4>
-      <h6>{student.hometown}</h6>
+      <h6>Hometown: {student.hometown}</h6>
       <p>{student.bio}</p>
       <button onClick={props.onDelete}>
         Delete
